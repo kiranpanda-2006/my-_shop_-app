@@ -1,0 +1,115 @@
+body{
+    background: linear-gradient(to right, #30A9DE, lightblue);
+    color: white;
+    overflow: hidden;
+    text-shadow: 2px 2px 1px #666;
+}
+.fighter-jet{
+    color: #333;
+    font-size: 100px !important;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+    animation: jet 1s infinite;
+}
+.clouds.cloud {
+    position: absolute;
+}
+.clouds .cloud:nth-child(1) {
+    font-size: 2em;
+    z-index: 1;
+    left: 100%;
+    top: 10%;
+    animation: cloud 2s infinite;
+    animation-delay: 100ms;
+}
+.clouds .cloud:nth-child(2) {
+    font-size: 1.5em;
+    z-index: 1;
+    left: 100%;
+    top: 80%;
+    animation: cloud 2s infinite;
+    animation-delay: 1.8s;
+}
+.clouds .cloud:nth-child(3){
+    font-size: 2.5em;
+    z-index: 1;
+    left: 100%;
+    top: 10%;
+    animation: cloud 2s infinite;
+    animation-delay: 400ms;
+}
+.clouds .cloud:nth-child(4){
+    font-size: 1.2em;
+    z-index: 1;
+    left: 100%;
+    top: 10%;
+    animation: cloud 2s infinite;
+    animation-delay: 1.2s;
+}
+.clouds .cloud:nth-child(5){
+    font-size: 3em;
+    z-index: 1;
+    left: 100%;
+    top: 30%;
+    animation: cloud 2s infinite;
+    animation-delay: 1.1s;
+}
+.clouds .cloud:nth-child(6){
+    font-size: 3.5em;
+    z-index: 1;
+    left: 100%;
+    top:70%;
+    animation: cloud 1.5s infinite;
+    animation-delay: 900ms;
+}
+.clouds .cloud:nth-child(7){
+    font-size: 3.2em;
+    z-index: 1;
+    left: 100%;
+    top:90%;
+    animation: cloud 1.5s infinite;
+    animation-delay: 500ms;
+}
+.clouds .cloud:nth-child(8){
+    font-size: 3.8em;
+    z-index: 3;
+    left: 100%;
+    top:60%;
+    animation: cloud 1.5s infinite;
+    animation-delay: 700ms;
+}
+.clouds .cloud:nth-child(9){
+    font-size: 4em;
+    z-index: 3;
+    left: 100%;
+    top:80%;
+    animation: cloud 1s infinite;
+    animation-delay: 400ms;
+}
+.clouds .cloud:nth-child(10){
+    font-size: 5em;
+    z-index: 3;
+    left: 100%;
+    top:50%;
+    animation: cloud 1s infinite;
+}
+@-webkit-keyframes jet{
+    0%{
+        left: 50%;
+    }
+    50%{
+        left: 52%;
+    }
+    100%{
+        left: 50%;
+    }
+}
+@-webkit-keyframes cloud{
+    0%{left: 100%;
+    }
+    100%{left: -50%;
+    }
+}

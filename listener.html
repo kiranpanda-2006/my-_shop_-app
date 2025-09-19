@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mic Listening Animation</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f0f0f0;
+    }
+
+    .mic-container {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      cursor: pointer;
+    }
+
+    .mic-icon {
+      width: 100px;
+      height: 100px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Microphone_icon.svg/1024px-Microphone_icon.svg.png') no-repeat center;
+      background-size: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .listening {
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 5px #00f);
+      }
+      50% {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 15px #00f);
+      }
+      100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 5px #00f);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="mic-container" onclick="toggleListening()">
+  <div class="mic-icon" id="micIcon"></div>
+</div>
+
+<script>
+  function toggleListening() {
+    const mic = document.getElementById('micIcon');
+    mic.classList.toggle('listening');
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <!-- Font Awesome for Eye Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h2 {
+            margin-bottom: 1em;
+            text-align: center;
+        }
+
+        div {
+            margin-bottom: 1em;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5em;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 0.5em;
+            box-sizing: border-box;
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 35px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.5em;
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3367d6;
+        }
+    </style>
+
+    <script>
+        // Show popup if error=true is in URL
+        window.onload = function () {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get("error") === "true") {
+                alert("Incorrect username or password. Please try again.");
+            }
+
+            // Toggle password visibility
+            const toggle = document.querySelector(".toggle-password");
+            const password = document.getElementById("password");
+
+            toggle.addEventListener("click", function () {
+                const type = password.getAttribute("type") === "password" ? "text" : "password";
+                password.setAttribute("type", type);
+                this.classList.toggle("fa-eye");
+                this.classList.toggle("fa-eye-slash");
+            });
+        }
+    </script>
+</head>
+<body>
+    <form th:action="@{/login}" method="post">
+        <h2>Please sign in</h2>
+        <div>
+            <label>Username:</label>
+            <input type="text" name="username" required />
+        </div>
+        <div class="password-container">
+            <label>Password:</label>
+            <input type="password" name="password" id="password" required />
+            <i class="fa-solid fa-eye toggle-password"></i>
+        </div>
+        <div>
+            <button type="submit">Sign in</button>
+        </div>
+    </form>
+</body>
+</html>
